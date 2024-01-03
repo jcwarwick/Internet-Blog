@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <!-- Include Tailwind CSS from CDN for styling -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+   <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-white text-2xl">The Tech Blog</a>
+      <div>
+        <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+        <a href="/dashboard" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+     
+        
+        <!-- Conditionally render Logout if logged in -->
+  {{#if loggedIn}}
+          <button id="logoutButton" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
+        {{else}}
+          <a href="/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto my-8">
+    {{{body}}}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-4 text-white text-center">
+    <p>&copy; 2023 The Tech Blog. All rights reserved.</p>
+  </footer>
+
+  <script type="text/javascript" src="/js/logout.js"></script>
+</body>
+</html>

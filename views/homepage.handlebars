@@ -1,0 +1,24 @@
+{{!-- Home View --}}
+
+<section class="max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold text-center my-6">Latest Posts</h2>
+  
+  {{#each posts as |post|}}
+    <article class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+     
+
+      <h3 class="text-xl font-semibold">
+        {{post.title}} 
+        <span class="text-sm text-gray-500">
+          Posted by {{post.user.username}} on {{formatDate post.createdAt}}
+        </span>
+      </h3>
+      <p class="text-gray-700 text-base mb-4">
+        {{truncate post.content 200}} <!-- Truncate the content to 200 characters -->
+      </p>
+      <a href="/posts/{{post.id}}" class="text-indigo-500 hover:text-indigo-600">Read more...</a>
+    </article>
+  {{else}}
+    <p class="text-center text-gray-500">No posts to display.</p>
+  {{/each}}
+</section>
